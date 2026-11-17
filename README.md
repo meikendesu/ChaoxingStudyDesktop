@@ -1,6 +1,6 @@
 # 学习通助手 Windows 客户端
 
-根据项目提供的《Windows 原生客户端复刻技术方案》分阶段开发。当前版本 **0.3.0 / 精简发布版**，技术栈为 **C# / .NET 10 / WPF / WebView2**。原油猴脚本和技术方案保持原样。
+本项目为 Windows 原生学习辅助客户端。当前版本 **0.3.0 / 精简发布版**，技术栈为 **C# / .NET 10 / WPF / WebView2**。
 
 ## 多账号配置
 
@@ -51,15 +51,15 @@
 
 **自动播放与配置切换**：自动播放是每个配置独立的开关。切换配置时若切出前正在自动播放，播放开关会接续到目标账户（只恢复开关与前台焦点，不导航、不重载、不重建实例）；若切出前未启动，目标账户保持未启动，状态栏明确提示「点『开始自动播放』启动」。答案缓存、完成追踪、Cookie 与页面状态仍按账户严格隔离。
 
-### OCR 与原脚本一致性
+### OCR 识别处理
 
-已逐项对照原油猴脚本的字体解密与 OCR 链路，修正三处偏离，其余保持既有实现：
+字体解密与 OCR 链路包含以下处理逻辑：
 
-| 项 | 修正 |
+| 项 | 说明 |
 | --- | --- |
-| 题干清洗 | 补齐 `_cleanQuestionText` 等价逻辑：HTML 实体（含双重编码）解码、去题号 / 题型标签 / 分值角标；清洗后为空时保留原文，避免纯题型标签题干被「题干为空不提交」门控误阻 |
-| 选项 `aria-label` | 补齐 `_extractOptionPairs.pickText` 的路径：优先读取选项文本节点（`.after` 等）自身的 `aria-label`，再回退到选项行容器与 input |
-| 私用区混淆字符 OCR 回退 | 原脚本在 DOM 提取失败时按实际字体渲染整题 OCR；此前 `private-use` 题目既不生成 OCR 任务，也不进入原生 OCR 处理，会永久停在 unsupported。现允许非 `.font-cxsecret` 容器内的私用区字符成为 OCR 候选，并纳入 `PrepareOcrAsync` 处理范围 |
+| 题干清洗 | `_cleanQuestionText` 等价逻辑：HTML 实体（含双重编码）解码、去题号 / 题型标签 / 分值角标；清洗后为空时保留原文，避免纯题型标签题干被「题干为空不提交」门控误阻 |
+| 选项 `aria-label` | `_extractOptionPairs.pickText` 的路径：优先读取选项文本节点（`.after` 等）自身的 `aria-label`，再回退到选项行容器与 input |
+| 私用区混淆字符 OCR 回退 | DOM 提取失败时按实际字体渲染整题 OCR；允许非 `.font-cxsecret` 容器内的私用区字符成为 OCR 候选，并纳入 `PrepareOcrAsync` 处理范围 |
 
 字形路径 MD5 后 8 位、`Table.json` 映射、字体跨文档查找、`font-cxsecret` 只读映射（不改写 DOM）、本地 Tesseract 5 与置信度门槛、字体域名白名单等均保持不变。离线回归新增题干清洗、选项 `aria-label`、私用区 OCR 回退与页面类型互斥断言。
 
@@ -82,13 +82,13 @@
 - 每次启动直接打开学习通首页；有历史课程时可点击右侧“恢复上次课程”。
 - 展示最近 50 条运行日志，独立删除密钥或清除浏览器资料。
 
-已对照原脚本补齐 `font-cxsecret` 字体解析：搜索当前、可访问父页面及嵌套文档的字体定义，支持分组与导入规则；页面字体下载失败时回退到原生下载（不受网页 CORS 限制），缓存字体数据；使用相同的 Typr 字形路径、MD5 后 8 位与 Table.json 映射。为减少处理量，仅计算当前题目中使用的字符，不遍历原脚本的全部 CJK 范围。原生下载仅允许学习通/超星 HTTPS 域名，每次重定向重新校验，最多 8 MB，可停止取消。保留自定义选项识别；字体映射只用于读取题目，不修改网页文字，真实课程适配正在验收。解析失败或字符映射不完整时仍提示手动处理。
+已实现 `font-cxsecret` 字体解析：搜索当前、可访问父页面及嵌套文档的字体定义，支持分组与导入规则；页面字体下载失败时回退到原生下载（不受网页 CORS 限制），缓存字体数据；使用 Typr 字形路径、MD5 后 8 位与 Table.json 映射。为减少处理量，仅计算当前题目中使用的字符，不遍历全部 CJK 范围。原生下载仅允许学习通/超星 HTTPS 域名，每次重定向重新校验，最多 8 MB，可停止取消。保留自定义选项识别；字体映射只用于读取题目，不修改网页文字，真实课程适配正在验收。解析失败或字符映射不完整时仍提示手动处理。
 
 图片文字 OCR 已接入本地 Tesseract 5（独立安装 `chi_sim`、`eng` 语言包）：分别识别题干和选项图片；字体映射失败时，将实际字体渲染成图片再识别。结果绑定原图/原文字，资源变化则失效。平均置信度低于 75%、任一文字置信度低于 35%、空结果或识别失败时仍阻止自动提交。OCR 仅提取文字，不能保证数学公式、图形关系或低清图片的识别正确性，须人工核对。安装和配置见 [OCR 使用说明](docs/OCR使用说明.md)。
 
 2026-10-22 题目处理逐项对照：修复包装容器合并多题、选项索引错位、分组多选识别、已生成答案在页面重绘后重复请求或未恢复的问题；已正确填写的选项和填空不重复触发修改。优先切换整卷浏览；有完整题号栏的同文档分页会逐页填写核验，等待正文更新，全部页通过后才交卷。逐题“保存/保存答案”只在读回通过后执行一次。无完整题号栏且无法整卷显示、跨文档题号跳转等未核验分页会暂停交卷。对照范围与测试证据见 [题目填写与 OCR 对照验收](docs/题目填写与OCR对照验收.md)。
 
-**尚未完成**：代码签名、多 Windows/DPI 实机验证、未知题型及布局的全面适配。应用不会执行仓库内的 `.user.js`；自动播放期间启用鼠标离开、窗口失焦和可见性事件保护，停止后解除保护。
+**尚未完成**：代码签名、多 Windows/DPI 实机验证、未知题型及布局的全面适配。自动播放期间启用鼠标离开、窗口失焦和可见性事件保护，停止后解除保护。
 
 ## 直接运行
 
@@ -172,7 +172,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\dev.ps1 publish
 | xunit | 2.9.3 | 测试断言与用例 |
 | xunit.runner.visualstudio | 3.0.2 | VSTest 测试适配器 |
 
-运行 `dev.ps1 restore` 安装上述声明依赖，NuGet 缓存位于 `.nuget/packages`。各项目的 `packages.lock.json` 固定传递依赖；CI 可使用 `dotnet restore --locked-mode`。最终用户无需 Node.js、Python 或油猴。
+运行 `dev.ps1 restore` 安装上述声明依赖，NuGet 缓存位于 `.nuget/packages`。各项目的 `packages.lock.json` 固定传递依赖；CI 可使用 `dotnet restore --locked-mode`。最终用户无需 Node.js 或 Python。
 
 ## 项目结构
 
@@ -219,10 +219,6 @@ P0 暂不引入数据库、DI 框架、MVVM 框架或额外 UI 库，后续随�
 结果 JSON 与两类截图保存在该验收目录。WPF `RenderTargetBitmap` 无法包含独立 HWND 内的 WebView2 画面，所以窗口截图中的浏览器区域为空；浏览器内容单独通过 `CapturePreviewAsync` 截取。
 
 真实网页登录、学校 SSO、真实课程适配、不同 DPI 和 Windows 版本尚需人工验收，离线测试不代表这些场景已通过。
-
-## 与输入技术方案的差异
-
-方案描述的是 6,317 行旧版；现有脚本为 5,934 行，SHA-256 为 `97A5FC1F324E1887A8C8D08C650856AD5BE2B47340CBC924E4DCDD46D6F5EB23`。当前源码已经没有实际公告请求、双标签操作面板及 `RunStateManager`，新增了自动页面识别与视频比例阈值。后续迁移以当前源码和阶段需求为准，不把旧方案的行号当作当前代码证据。
 
 开发文档参考：[WebView2 WPF 入门](https://learn.microsoft.com/en-us/microsoft-edge/webview2/get-started/wpf)、[WebView2 用户数据目录](https://learn.microsoft.com/en-us/microsoft-edge/webview2/concepts/user-data-folder)、[WebView2 包](https://www.nuget.org/packages/Microsoft.Web.WebView2/1.0.4258.31)、[.NET 10 下载](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)。
 
