@@ -1,0 +1,27 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>课程页面验收</title>
+<style>body{font:16px sans-serif}li{cursor:pointer;padding:6px}.finished{color:#1a7f37}.roundpoint{display:inline-block;width:10px;height:10px;border-radius:50%;background:#ddd;margin-left:8px}.roundpoint.done{background:#1a7f37}</style>
+<h1 class="courseName">高等数学（上）</h1>
+<input type="hidden" id="courseId" value="1001">
+<!-- 课程页面：全部任务点目录。completed 类由离线回归按场景切换。 -->
+<ul id="coursetree">
+  <li class="finished" onclick="window.taskClicks=(window.taskClicks||0)+1"><span class="posCatalog_name">第一章 函数与极限</span><span class="roundpoint done"></span></li>
+  <li class="finished" onclick="window.taskClicks=(window.taskClicks||0)+1"><span class="posCatalog_name">第二章 导数</span><span class="roundpoint done"></span></li>
+  <li onclick="window.taskClicks=(window.taskClicks||0)+1"><span class="posCatalog_name">第三章 积分</span><span class="roundpoint"></span></li>
+  <li onclick="window.taskClicks=(window.taskClicks||0)+1"><span class="posCatalog_name">第四章 级数</span><span class="roundpoint"></span></li>
+</ul>
+<!-- 学习页面位于子框架；课程页面自身不放音视频/题目，两者严格区分。 -->
+<iframe id="lesson" src="https://study-desktop.local/course-study-fixture.html" style="width:420px;height:150px"></iframe>
+<script>
+window.markAllDone = () => document.querySelectorAll('#coursetree li').forEach(li => {
+  li.classList.add('finished');
+  const dot = li.querySelector('.roundpoint');
+  if (dot) dot.classList.add('done');
+});
+window.resetTasks = () => document.querySelectorAll('#coursetree li').forEach((li, i) => {
+  li.classList.toggle('finished', i < 2);
+  const dot = li.querySelector('.roundpoint');
+  if (dot) dot.classList.toggle('done', i < 2);
+});
+window.taskClicks = 0;
+</script>
+</html>

@@ -1,0 +1,170 @@
+[
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\build-temp",
+    "Removed": true,
+    "Bytes": 8302088.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\publish-staging",
+    "Removed": true,
+    "Bytes": 2251321.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\smoke",
+    "Removed": true,
+    "Bytes": 308745191.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\restore-offline",
+    "Removed": true,
+    "Bytes": 121590277.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.nuget",
+    "Removed": true,
+    "Bytes": 134992190.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.dotnet-home",
+    "Removed": true,
+    "Bytes": 0.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.tools\\downloads",
+    "Removed": true,
+    "Bytes": 26573224.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.Core\\bin",
+    "Removed": true,
+    "Bytes": 67766.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.Core\\obj",
+    "Removed": true,
+    "Bytes": 166713.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\tests\\Desktop.Core.Tests\\bin",
+    "Removed": true,
+    "Bytes": 5448232.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\tests\\Desktop.Core.Tests\\obj",
+    "Removed": true,
+    "Bytes": 279266.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\obj",
+    "Removed": true,
+    "Bytes": 1545797.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Assets",
+    "Removed": true,
+    "Bytes": 464720.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\runtimes",
+    "Removed": true,
+    "Bytes": 530464.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\win-x64",
+    "Removed": true,
+    "Bytes": 2253098.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.deps.json",
+    "Removed": true,
+    "Bytes": 3192.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.dll",
+    "Removed": true,
+    "Bytes": 321536.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.exe",
+    "Removed": true,
+    "Bytes": 183296.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.pdb",
+    "Removed": true,
+    "Bytes": 57968.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.runtimeconfig.json",
+    "Removed": true,
+    "Bytes": 519.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Desktop.Core.dll",
+    "Removed": true,
+    "Bytes": 66560.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Desktop.Core.pdb",
+    "Removed": true,
+    "Bytes": 24348.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Core.dll",
+    "Removed": true,
+    "Bytes": 698208.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Core.xml",
+    "Removed": true,
+    "Bytes": 612031.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.WinForms.dll",
+    "Removed": true,
+    "Bytes": 39264.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.WinForms.xml",
+    "Removed": true,
+    "Bytes": 41869.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Wpf.dll",
+    "Removed": true,
+    "Bytes": 87392.0,
+    "Error": null
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Wpf.xml",
+    "Removed": true,
+    "Bytes": 143649.0,
+    "Error": null
+  }
+]

@@ -1,0 +1,7 @@
+<!doctype html><meta charset="utf-8"><title>跨域内容</title>
+<section class="questionLi"><h3>判断：1 + 1 等于 2</h3><label><input type="radio" name="judge">正确</label><label><input type="radio" name="judge">错误</label></section>
+<script>
+if (!location.search) {
+ const frame=document.createElement('iframe');frame.src='https://study-desktop.local/study-frame.html?nested=1';document.body.append(frame);
+}
+</script>

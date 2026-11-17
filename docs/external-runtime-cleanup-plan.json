@@ -1,0 +1,116 @@
+[
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\installed-app",
+    "Files": 418,
+    "Bytes": 149143038.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\installer-build",
+    "Files": 3,
+    "Bytes": 108956519.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\build-temp",
+    "Files": 14,
+    "Bytes": 8302088.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\publish-staging",
+    "Files": 458,
+    "Bytes": 153400468.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\smoke",
+    "Files": 258,
+    "Bytes": 14807898.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\restore-offline",
+    "Files": 18,
+    "Bytes": 121590277.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.nuget",
+    "Files": 1133,
+    "Bytes": 454494735.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.dotnet-home",
+    "Files": 2,
+    "Bytes": 0.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.tools\\downloads",
+    "Files": 2,
+    "Bytes": 12468968.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\setup.inf",
+    "Files": 1,
+    "Bytes": 7673.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\setup.rpt",
+    "Files": 1,
+    "Bytes": 283.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.Core\\bin",
+    "Files": 2,
+    "Bytes": 58038.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.Core\\obj",
+    "Files": 17,
+    "Bytes": 151175.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\tests\\Desktop.Core.Tests\\bin",
+    "Files": 89,
+    "Bytes": 5432612.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\tests\\Desktop.Core.Tests\\obj",
+    "Files": 20,
+    "Bytes": 274118.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\obj",
+    "Files": 30,
+    "Bytes": 748267.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\win-x64",
+    "Files": 27,
+    "Bytes": 2135907.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\publish\\学习通助手-阈值切换修复-win-x64.zip",
+    "Files": 1,
+    "Bytes": 60141134.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\publish\\ChaoxingStudySetup.msi",
+    "Files": 1,
+    "Bytes": 54525952.0,
+    "Directory": false
+  }
+]

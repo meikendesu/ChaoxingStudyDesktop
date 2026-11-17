@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>学习通助手</AssemblyName>
+    <RootNamespace>Desktop.App</RootNamespace>
+    <ApplicationIcon>Branding/app.ico</ApplicationIcon>
+    <Product>学习通助手</Product>
+    <Description>学习通 Windows 原生学习辅助客户端</Description>
+    <Version>0.3.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(PublishSingleFile)' == 'true'">
+    <!-- 原生库随包保留，避免启动前必须写入系统 TEMP/.net。 -->
+    <IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
+    <WebView2NeverCopyLoaderDllToOutputDirectory>true</WebView2NeverCopyLoaderDllToOutputDirectory>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <PublishTrimmed>false</PublishTrimmed>
+    <AllowedReferenceRelatedFileExtensions>.pdb</AllowedReferenceRelatedFileExtensions>
+  </PropertyGroup>
+  <ItemGroup>
+    <Resource Include="Branding/app.ico" />
+    <Resource Include="Branding/app-icon.png" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4258.31" />
+    <ProjectReference Include="../Desktop.Core/Desktop.Core.csproj" />
+    <Content Include="Assets/**" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Update="Assets/*fixture*;Assets/study-frame.html;Assets/start.html" CopyToPublishDirectory="Never" />
+    <Content Include="../../.env.example" Link=".env.example" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="../../docs/便携版说明.txt" Link="使用说明.txt" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="../../docs/OCR使用说明.md" Link="OCR使用说明.md" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup>
+</Project>

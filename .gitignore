@@ -1,0 +1,22 @@
+.tools/
+.nuget/
+.dotnet-home/
+**/bin/
+**/obj/
+artifacts/
+TestResults/
+.vs/
+.env
+*.user
+*.suo
+.workbuddy/
+
+# 原始油猴脚本不纳入源代码仓库（仅保留为本地参考资料）。
+*.user.js
+# 运行时生成的协议确认状态与登录/密钥类数据不入库。
+agreement.json
+session-cookies.bin
+profile-cookies.bin
+secrets/
+BrowserProfile/
+data/

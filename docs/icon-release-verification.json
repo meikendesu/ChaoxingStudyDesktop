@@ -1,0 +1,17 @@
+{
+  "UserDataFilesUnchanged": 2401,
+  "Deployments": [
+    "current"
+  ],
+  "Packages": [
+    "学习通助手-便携版-win-x64.zip",
+    "学习通助手-win-x64.zip"
+  ],
+  "BuildCacheExists": false,
+  "NuGetCacheExists": false,
+  "DotnetHomeExists": false,
+  "NewExeExists": true,
+  "OldExeExists": false,
+  "Seed": true,
+  "Verify": true
+}

@@ -1,0 +1,23 @@
+{
+  "CoreTestsPassed": 41,
+  "SourceSmoke": "4d888611ca194f79b2037d85bfdc88ed",
+  "PackageEntries": 21,
+  "PackageBytes": 851122,
+  "PackageSHA256": "20C3292D7CB3D0FA64A74F916825B5343F25C3F9D25E5405DDA16777A224C78F",
+  "EveryZipEntryMatches": true,
+  "PublishedAgentMatchesSource": true,
+  "OriginalScriptSHA256": "97A5FC1F324E1887A8C8D08C650856AD5BE2B47340CBC924E4DCDD46D6F5EB23",
+  "ExternalOcrEngine": true,
+  "BundledDotnet": false,
+  "BundledWebView2": false,
+  "PublishedSmoke": "d93f764700284b4fb1300cc795978ccb",
+  "PublishedSeedPassed": true,
+  "PublishedVerifyPassed": true,
+  "OcrChineseConfidence": 94.700753125,
+  "PreservedFileCount": 10941,
+  "ProtectedFileHashesUnchanged": true,
+  "CleanupRemovedTargets": 28,
+  "CleanupFailures": 0,
+  "CleanupReclaimedMB": 586.98,
+  "OldLegacyZipPresent": false
+}

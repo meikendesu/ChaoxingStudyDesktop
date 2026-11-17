@@ -1,0 +1,170 @@
+[
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\build-temp",
+    "Files": 14,
+    "Bytes": 8302088.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\publish-staging",
+    "Files": 21,
+    "Bytes": 2251321.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\smoke",
+    "Files": 4938,
+    "Bytes": 308745191.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\artifacts\\restore-offline",
+    "Files": 18,
+    "Bytes": 121590277.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.nuget",
+    "Files": 481,
+    "Bytes": 134992190.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.dotnet-home",
+    "Files": 3,
+    "Bytes": 0.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\.tools\\downloads",
+    "Files": 1,
+    "Bytes": 26573224.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.Core\\bin",
+    "Files": 2,
+    "Bytes": 67766.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.Core\\obj",
+    "Files": 17,
+    "Bytes": 166713.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\tests\\Desktop.Core.Tests\\bin",
+    "Files": 89,
+    "Bytes": 5448232.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\tests\\Desktop.Core.Tests\\obj",
+    "Files": 20,
+    "Bytes": 279266.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\obj",
+    "Files": 51,
+    "Bytes": 1545797.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Assets",
+    "Files": 17,
+    "Bytes": 464720.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\runtimes",
+    "Files": 3,
+    "Bytes": 530464.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\win-x64",
+    "Files": 27,
+    "Bytes": 2253098.0,
+    "Directory": true
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.deps.json",
+    "Files": 1,
+    "Bytes": 3192.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.dll",
+    "Files": 1,
+    "Bytes": 321536.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.exe",
+    "Files": 1,
+    "Bytes": 183296.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.pdb",
+    "Files": 1,
+    "Bytes": 57968.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\学习通助手.runtimeconfig.json",
+    "Files": 1,
+    "Bytes": 519.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Desktop.Core.dll",
+    "Files": 1,
+    "Bytes": 66560.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Desktop.Core.pdb",
+    "Files": 1,
+    "Bytes": 24348.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Core.dll",
+    "Files": 1,
+    "Bytes": 698208.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Core.xml",
+    "Files": 1,
+    "Bytes": 612031.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.WinForms.dll",
+    "Files": 1,
+    "Bytes": 39264.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.WinForms.xml",
+    "Files": 1,
+    "Bytes": 41869.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Wpf.dll",
+    "Files": 1,
+    "Bytes": 87392.0,
+    "Directory": false
+  },
+  {
+    "Path": "C:\\Users\\N5123\\Documents\\ChatGPT\\XXTClass\\src\\Desktop.App\\bin\\Release\\net10.0-windows\\Microsoft.Web.WebView2.Wpf.xml",
+    "Files": 1,
+    "Bytes": 143649.0,
+    "Directory": false
+  }
+]

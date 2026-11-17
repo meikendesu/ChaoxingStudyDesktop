@@ -1,0 +1,37 @@
+{
+  "UpdatedAt": "2026-10-26T13:13:36.4767887+08:00",
+  "CookieLoginRestored": true,
+  "CourseRestored": true,
+  "CourseProgress": "2.4% · 2/83 章（网页标记）",
+  "VideoProgress": "91.1% · 当前课时播放比例",
+  "VideoPositionAdvanced": true,
+  "ChapterTransitions": 0,
+  "AiAnswersGenerated": 14,
+  "AnswersFilled": 10,
+  "SubmissionsRequested": 1,
+  "WebSubmissionCompleted": true,
+  "WebScore": 40,
+  "WebScoreMaximum": 100,
+  "FourOptionQuestionsCorrected": true,
+  "JudgementOptionsCorrected": true,
+  "FocusChangeContinued": true,
+  "ThresholdReached": true,
+  "Media": [
+    {
+      "VideoCount": 1,
+      "VideoFinished": 1,
+      "MediaPaused": true,
+      "Position": 659.658814,
+      "Duration": 724.352,
+      "MediaStatus": "已播放至 91%，进入下一任务点"
+    }
+  ],
+  "Limitations": [
+    "平台当前章节完成标记尚未出现，未验证真实自动跨章",
+    "模型答案本次得分40/100，不保证正确率"
+  ],
+  "FinalReviewQuestionCount": 0,
+  "FinalReviewAiRequests": 0,
+  "FinalReviewSubmissions": 0,
+  "StopButtonStatusVerified": true
+}

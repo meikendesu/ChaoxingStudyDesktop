@@ -1,0 +1,19 @@
+{
+  "Success": true,
+  "Phase": "seed",
+  "VideoCount": 2,
+  "QuestionCount": 3,
+  "Checks": [
+    "native-settings",
+    "env-settings",
+    "mute-toggle",
+    "no-context-menu",
+    "bridge",
+    "cancel",
+    "profile-persistence",
+    "nested-cross-origin",
+    "real-media-play-stop-ended",
+    "chapter-once",
+    "answer-fill-stale-rejection"
+  ]
+}

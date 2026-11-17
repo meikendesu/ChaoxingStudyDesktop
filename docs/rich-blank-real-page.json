@@ -1,0 +1,71 @@
+{
+  "Mode": "Read-only structure check; no font preparation, model request, fill or submit",
+  "QuestionCount": 10,
+  "RichBlankCounts": [
+    3,
+    3,
+    2
+  ],
+  "QuestionSummary": [
+    {
+      "blankCount": 0,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 4
+    },
+    {
+      "blankCount": 0,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 4
+    },
+    {
+      "blankCount": 0,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 4
+    },
+    {
+      "blankCount": 0,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 4
+    },
+    {
+      "blankCount": 3,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 0
+    },
+    {
+      "blankCount": 3,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 0
+    },
+    {
+      "blankCount": 2,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 0
+    },
+    {
+      "blankCount": 0,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 2
+    },
+    {
+      "blankCount": 0,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 2
+    },
+    {
+      "blankCount": 0,
+      "issue": "font",
+      "kind": "unsupported",
+      "optionCount": 2
+    }
+  ]
+}

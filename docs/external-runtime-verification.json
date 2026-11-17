@@ -1,0 +1,19 @@
+{
+  "Success": true,
+  "CoreTests": 38,
+  "ZipFiles": 20,
+  "ZipHashVerified": true,
+  "UnpackedMB": 2.03,
+  "ExternalDesktopRuntime": "10.0.13 from .tools/dotnet (test only)",
+  "ProtectedBaselineFiles": 2491,
+  "SeedSuccess": true,
+  "VerifySuccess": true,
+  "ProtectedFilesUnchanged": 2491,
+  "Cleanup": 19,
+  "CleanupSummary": {
+    "Removed": 19,
+    "Failed": 0,
+    "ReclaimedMB": 1093.52,
+    "BlockedOldPackage": "学习通助手-win-x64.zip (previous automatic approval rejection)"
+  }
+}

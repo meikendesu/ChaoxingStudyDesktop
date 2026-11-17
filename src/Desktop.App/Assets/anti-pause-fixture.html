@@ -1,0 +1,23 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>防暂停离线验收</title>
+<video muted controls style="width:240px;height:120px"></video>
+<input id="focus-test" aria-label="焦点测试">
+<script>
+// 20 秒静音媒体，使用真实 play/pause 验证事件拦截，不访问课程。
+const size=320000, data=new Uint8Array(size+44), header=new DataView(data.buffer);
+const write=(offset,value)=>[...value].forEach((c,i)=>data[offset+i]=c.charCodeAt(0));
+write(0,'RIFF');header.setUint32(4,size+36,true);write(8,'WAVE');write(12,'fmt ');
+header.setUint32(16,16,true);header.setUint16(20,1,true);header.setUint16(22,1,true);
+header.setUint32(24,8000,true);header.setUint32(28,16000,true);header.setUint16(32,2,true);header.setUint16(34,16,true);
+write(36,'data');header.setUint32(40,size,true);
+const video=document.querySelector('video');
+video.src=URL.createObjectURL(new Blob([data],{type:'audio/wav'}));
+window.leaveCalls=0;window.inputBlurs=0;window.internalMoves=0;
+function pauseForLeave(){window.leaveCalls++;video.pause();document.querySelector('iframe')?.contentWindow.postMessage('fixture-pause','https://fixture.chaoxing.com');}
+document.addEventListener('mouseout',e=>{if(!e.relatedTarget)pauseForLeave();else window.internalMoves++;});
+document.addEventListener('mouseleave',e=>{if(!e.relatedTarget)pauseForLeave();});
+window.addEventListener('blur',e=>{if(e.target===window)pauseForLeave();});
+document.addEventListener('visibilitychange',pauseForLeave);
+document.querySelector('input').addEventListener('blur',()=>window.inputBlurs++);
+window.addEventListener('message',e=>{if(e.origin==='https://study-desktop.local'&&e.data==='fixture-pause')video.pause();});
+if(!location.search){const frame=document.createElement('iframe');frame.src='https://fixture.chaoxing.com/anti-pause-fixture.html?child=1';document.body.append(frame);}
+</script></html>
