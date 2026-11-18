@@ -41,6 +41,67 @@ internal static partial class SmokeTest
             "播放器容器隐藏后仍识别为当前音频");
     }
 
+    // 网站未允许自动播放：自动找到当前视频的播放按钮并点击；点击无法起播时有限重试并保留人工提示。
+    private static async Task VerifyAutoplayBlockedClickAsync(MainWindow window, BrowserHost browser, WebView2 view)
+    {
+        await window.StopStudyAsync();
+        using var deadline = new CancellationTokenSource(TimeSpan.FromSeconds(10));
+        using var study = new StudyBrowser(view.CoreWebView2, browser);
+        await NavigateAndRead(browser, "https://study-desktop.local/video-tabs-fixture.html");
+        await view.ExecuteScriptAsync("""
+            (() => {
+            document.querySelector('.prev_ul').remove();
+            const media=document.querySelector('video');media.controls=false;media.src=sources[0];
+            const player=document.createElement('div');player.id='vjs-player';player.className='video-js vjs-paused';
+            media.replaceWith(player);player.append(media);
+            const big=document.createElement('button');big.className='vjs-big-play-button';big.type='button';big.textContent='播放';
+            big.addEventListener('click',()=>{window.playButtonClicks=(window.playButtonClicks||0)+1;window.blockAutoplay=false;media.play();});
+            player.append(big);
+            const realPlay=HTMLMediaElement.prototype.play;
+            window.blockAutoplay=true;
+            HTMLMediaElement.prototype.play=function(){return window.blockAutoplay
+              ?Promise.reject(new DOMException('play() failed because the user did not interact','NotAllowedError'))
+              :realPlay.call(this);};
+            })();
+            """);
+        var frames = await study.ReadAsync(deadline.Token);
+        var top = frames.Single(f => f.Frame is null);
+        await study.ConfigureAsync(new AppSettings { AdvanceAtPercent = 100, PlaybackRate = 1 });
+        // 场景 A：play() 被 NotAllowedError 拒绝（含静音重试），代理自动点击大播放按钮后起播。
+        await study.CommandAsync(top, "play", deadline.Token);
+        while (await view.ExecuteScriptAsync("document.querySelector('video').paused") != "false")
+            await Task.Delay(20, deadline.Token);
+        Require(await view.ExecuteScriptAsync("window.playButtonClicks") == "1", "自动播放被阻止后没有自动点击播放按钮");
+        Require(await view.ExecuteScriptAsync("window.__studyDesktop.snapshot().mediaEvents.some(e=>e.kind==='click-play-button')") == "true",
+            "未记录点击播放按钮事件");
+        // 场景 B：播放按钮点击也无法起播（网站持续拦截），验证重试上限与人工兜底提示。
+        await study.CommandAsync(top, "stop", deadline.Token);
+        await view.ExecuteScriptAsync("""
+            (() => {
+            const media=document.querySelector('video');
+            media.closest('.video-js').classList.add('vjs-paused');
+            document.querySelector('.vjs-big-play-button').remove();
+            const big=document.createElement('button');big.className='vjs-big-play-button';big.type='button';big.textContent='播放';
+            big.addEventListener('click',()=>{window.playButtonClicks=(window.playButtonClicks||0)+1;});
+            media.closest('.video-js').append(big);
+            window.playButtonClicks=0;window.blockAutoplay=true;
+            })();
+            """);
+        var trace = new List<string>
+        {
+            await study.CommandAsync(top, "play", deadline.Token),
+            await study.CommandAsync(top, "play", deadline.Token),
+            await study.CommandAsync(top, "play", deadline.Token),
+            await study.CommandAsync(top, "play", deadline.Token),
+        };
+        var clicks = await view.ExecuteScriptAsync("window.playButtonClicks");
+        var events = await view.ExecuteScriptAsync("window.__studyDesktop.snapshot().mediaEvents.map(e=>e.kind).join(',')");
+        Require(trace[3].Contains("请手动点击"),
+            $"点击重试达上限后未保留人工提示；trace={string.Join(" | ", trace)}；clicks={clicks}；events={events}");
+        Require(clicks == "3", "播放按钮重试次数不受上限约束");
+        await study.CommandAsync(top, "stop", deadline.Token);
+    }
+
     private static async Task VerifyAudioAsync(MainWindow window, BrowserHost browser, WebView2 view, string root)
     {
         await window.StopStudyAsync();

@@ -379,6 +379,25 @@
   const mediaSource = v => String(v?.currentSrc || v?.src || v?.getAttribute?.('src') || v?.querySelector?.('source[src]')?.src || '').trim();
   const mediaFinished = v => v.ended || (mediaSource(v) !== '' && finishedMedia.has(mediaSource(v)));
   const finishMedia = v => { const key = mediaSource(v); if (key) finishedMedia.add(key); try { if (!v.paused) pauseMedia(v, 'threshold-pause'); } catch (_) {} };
+  // 网站未允许自动播放时，自动定位当前媒体所属播放器中可见的播放按钮并点击。
+  // 直接 play() 被站点或浏览器策略拒绝后，驱动网页自身的播放控件更符合其状态机预期。
+  const playButtonSelectors = ['.vjs-big-play-button', '.vjs-play-control', 'button[title*="播放"]', '[role="button"][title*="播放"]', 'button[aria-label*="播放"]', '[role="button"][aria-label*="播放"]'];
+  const clickPlayButton = media => {
+    const container = media.closest('.video-js') || audioPlayerContainer(media) || media.parentElement;
+    if (!container) return false;
+    for (const selector of playButtonSelectors) {
+      for (const button of [...container.querySelectorAll(selector)]) {
+        if (!visible(button)) continue;
+        // 控制条播放键在播放中会切换为暂停键：仅当播放器状态或文案表明处于暂停时点击。
+        const label = `${button.title || ''} ${button.getAttribute('aria-label') || ''}`;
+        if (selector === '.vjs-play-control' && !container.classList.contains('vjs-paused') && !/播放|play/i.test(label)) continue;
+        recordMedia(media, 'click-play-button');
+        button.click();
+        return true;
+      }
+    }
+    return false;
+  };
   const configure = config => { if (config && Number.isFinite(config.advanceAtPercent)) { const p = Math.round(config.advanceAtPercent); if (p >= 1 && p <= 100) advanceAtPercent = p; } if (config && Number.isFinite(config.playbackRate)) { const r = Number(config.playbackRate); if (r >= 0.25 && r <= 16) playbackRate = r; } return advanceAtPercent; };
   const snapshot = () => {
     const list = mediaElements(), chapters = catalog(), current = chapters.find(active);
@@ -456,8 +475,17 @@
     if (!source) return mediaStatus = `等待${mediaLabel(list)}加载`;
     if (video.error) return mediaStatus = `${mediaLabel(list)}加载失败，请检查网页`;
     const previous = attemptedPlays.get(video);
-    if (previous?.source === source && previous.epoch === generation)
-      return mediaStatus = previous.pending ? '正在等待播放器启动' : `${mediaLabel(list)}已暂停；请点击网页继续或重新开始`;
+    if (previous?.source === source && previous.epoch === generation) {
+      if (previous.pending) return mediaStatus = '正在等待播放器启动';
+      // 自动播放被拒后点击过播放按钮仍未起播：继续有限次点击，超限后保留显式人工提示。
+      if (previous.blocked && (previous.clicks || 0) < 3) {
+        previous.clicks = (previous.clicks || 0) + 1;
+        if (clickPlayButton(video)) { mediaStatus = '网站未允许自动播放，已再次点击播放按钮'; return 'requested'; }
+      }
+      return mediaStatus = previous.blocked
+        ? '网站未允许自动播放，多次点击播放按钮仍未起播，请手动点击'
+        : `${mediaLabel(list)}已暂停；请点击网页继续或重新开始`;
+    }
     const epoch = generation;
     const attempt = { source, epoch, pending: true };
     attemptedPlays.set(video, attempt);
@@ -506,8 +534,14 @@
     };
     start().catch(() => {
       attempt.pending = false;
-      if (attemptedPlays.get(video) === attempt && epoch === generation)
-        mediaStatus = '播放器未允许自动播放，请点击网页播放按钮';
+      if (attemptedPlays.get(video) === attempt && epoch === generation) {
+        // 网站未允许自动播放视频：自动找到当前媒体的播放按钮并点击，代替人工干预。
+        attempt.blocked = true;
+        attempt.clicks = clickPlayButton(video) ? 1 : 0;
+        mediaStatus = attempt.clicks
+          ? '网站未允许自动播放，已自动点击播放按钮'
+          : '播放器未允许自动播放，请点击网页播放按钮';
+      }
     });
     return 'requested';
   };
